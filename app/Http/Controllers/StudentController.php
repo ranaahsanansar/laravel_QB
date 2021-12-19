@@ -64,7 +64,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = DB::table('students')->find($id);
+        return view('editform' , ['student'=> $student]);
     }
 
     /**
@@ -76,7 +77,12 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('students')->where('id' , $id)->update([
+            'name' => $request->name,
+            'city' => $request->city,
+            'marks' => $request->marks,
+        ]);
+        return redirect(route('index'))->with('status' , 'Student ' . $request->name .' was UPDATED!!! @ASN_Laravel_Project');
     }
 
     /**

@@ -10,3 +10,6 @@ use App\Http\controllers\StudentController;
 Route::get('/' , [StudentController::class , 'index'])->name('index');
 Route::post('/' , [StudentController::class , 'create']);
 
+Route::get('/editform/{id}' , [StudentController::class , 'edit'])->name('edit');
+Route::POST('/editform/{id}' , [StudentController::class , 'update'])->name('update');
+

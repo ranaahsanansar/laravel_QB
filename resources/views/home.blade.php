@@ -63,7 +63,7 @@
     <div class="container">
         <div class="msg">
             @if (session()->has('status'))
-                <div class="alert alert-success">{{ session('status') }}</div>
+                <div class="alert alert-success">{{ session('status') }} <a href="{{route('index')}}"><strong> Refresh</strong></a></div>
             @else
                 <div>
                     <h1 class="heading">Rana Ahsan Ansar Laravel 8 CRUD Project</h1>
@@ -78,7 +78,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <form method="POST">
+                    <form action="" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
@@ -114,7 +114,7 @@
                                     <td>{{ $stu->city }}</td>
                                     <td>{{ $stu->marks }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info btn-sm">Edit</a>
+                                        <a href="{{ url('/editform' , $stu->id) }}" class="btn btn-info btn-sm">Edit</a>
                                         <a href="" class="btn btn-danger btn-sm">Deletes</a>
                                     </td>
                                 </tr>
