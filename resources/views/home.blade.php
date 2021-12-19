@@ -49,11 +49,10 @@
                         <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Linkedin</a>
+                        <a class="nav-link" href="https://www.linkedin.com/in/asn-cs21" target="_blanck">Linkedin</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                        <a class="nav-link" href="https://github.com/ranaahsanansar" target="_blanck">GITHUB</a>
                     </li>
                 </ul>
             </div>
