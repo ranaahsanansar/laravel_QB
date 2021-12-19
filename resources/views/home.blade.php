@@ -115,7 +115,7 @@
                                     <td>{{ $stu->marks }}</td>
                                     <td>
                                         <a href="{{ url('/editform' , $stu->id) }}" class="btn btn-info btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Deletes</a>
+                                        <a href="{{ url('/delete' , $stu->id) }}" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -93,6 +93,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('students')->where('id' , $id)->delete();
+        return redirect(route('index'))->with('status' , 'Student was Deleted!!! @ASN_Laravel_Project');
     }
 }
