@@ -12,9 +12,22 @@
 
     <title>ASN CRUD_QB</title>
     <style>
-        .data_entry {
-            margin-top: 20px;
+        *{
+            margin: 0;
+            padding: 0;
         }
+        .data_entry {
+            margin-top: 50px;
+        }
+
+        .msg {
+            margin-top: 10px;
+        }
+
+        .heading {
+            text-align: center;
+        }
+
     </style>
 </head>
 
@@ -24,28 +37,44 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">ASN LARAVEL</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Linkedin</a>
-              </li>
+            <a class="navbar-brand" href="#">ASN LARAVEL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Linkedin</a>
+                    </li>
 
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-          </div>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
-{{-- -----------------------Form-------------------------------------------- --}}
-    <div class="data_entry">
+    </nav>
+
+    <div class="container">
+        <div class="msg">
+            @if (session()->has('status'))
+                <div class="alert alert-success">{{ session('status') }}</div>
+            @else
+                <div>
+                    <h1 class="heading">Rana Ahsan Ansar Laravel 8 CRUD Project</h1>
+                </div>
+            @endif
+
+        </div>
+    </div>
+
+
+    {{-- -----------------------Form-------------------------------------------- --}}
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -66,9 +95,36 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
+                <div class="col-sm-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Marks</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($students as $stu)
+                                <tr>
+                                    <th>{{ $stu->id }}</th>
+                                    <td>{{ $stu->name }}</td>
+                                    <td>{{ $stu->city }}</td>
+                                    <td>{{ $stu->marks }}</td>
+                                    <td>
+                                        <a href="" class="btn btn-info btn-sm">Edit</a>
+                                        <a href="" class="btn btn-danger btn-sm">Deletes</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
 
 

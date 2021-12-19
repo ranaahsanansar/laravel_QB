@@ -15,7 +15,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $students = DB::table('students')->get();
+        return view('home' ,['students'=>$students]);
     }
 
     /**
@@ -30,7 +31,7 @@ class StudentController extends Controller
             'city' => $request->city,
             'marks' => $request->marks,
         ]);
-        return redirect(route('index'));
+        return redirect(route('index'))->with('status' , 'Student ' . $request->name .' was Added!!! @ASN_Laravel_Project');
     }
 
     /**
